@@ -48,6 +48,7 @@ function createBoxes(amount) {
       You can try again
     `)
   }
+  document.querySelector('#controls input').value = ''
 }
 
 function destroyBoxes() {
