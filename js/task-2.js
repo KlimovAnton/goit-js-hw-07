@@ -30,53 +30,22 @@ const images = [
 
 const galleryEl = document.querySelector(`.gallery`)
 
-// images.forEach(image => {
-//   const imgEl = document.createElement(`img`)
-//   imgEl.src = image.url;
-//   imgEl.alt = image.alt;
-//   imgEl.width = 640;
-//   imgEl.height = 400;
+const makeListGalleryFn = (img) => {
 
-//   const liEl = document.createElement(`li`)
-//   console.log(liEl)
-//   liEl.append(imgEl)
-//   galleryEl.append(liEl)
-// })
-
-// 33-44 строки, це костиль, так?
-
-  images.forEach(image => {
-    const listEl = document.createElement(`li`)
+  const {
+    url,
+    alt
+  } = img
   
-    listEl.innerHTML = `
-    <img src = ${image.url} 
-    alt = ${image.alt}
-    width = 640
-    height = 400>`
-  
-  
-    galleryEl.append(listEl)
-  })
+  return `
+    <li class="gallery-list">
+      <img src="${url}" width="640" height="400">
+      <alt="${alt}">
+    </li>
+  `
+}
 
+const addgalleryEl = images.map(makeListGalleryFn)
+  .join('');
 
-
-
-// const makeListGalleryFn = (img) => {
-
-//   const {
-//     url,
-//     alt
-//   } = img
-  
-//   return `
-//     <li class="gallery-list">
-//       <img src="${url}" width="640" height="400">
-//       <alt="${alt}">
-//     </li>
-//   `
-// }
-
-// const addgalleryEl = images.map(makeListGalleryFn)
-//   .join('');
-
-// galleryEl.insertAdjacentHTML(`beforeend`, addgalleryEl)
+galleryEl.insertAdjacentHTML(`beforeend`, addgalleryEl)

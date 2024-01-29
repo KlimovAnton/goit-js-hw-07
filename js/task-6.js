@@ -9,20 +9,13 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 
-const btnElements = document.querySelectorAll(`#controls button`)
-console.log(btnElements[0])
-console.log(btnElements[1])
-
-// const amount = document.querySelector(`#controls input`)
-// console.log(amount.value)
-
+const btnCreate = document.querySelector(`button[data-create]`)
+const btnDestroy = document.querySelector(`button[data-destroy]`)
 const divElement = document.querySelector(`#boxes`)
-// console.log(divElement)
 
-const amount2 = document.querySelector(`#controls input`)
-console.log(amount2)
+console.log(btnDestroy)
 
-btnElements[0].addEventListener(`click`, (e) => {
+btnCreate.addEventListener(`click`, (e) => {
   e.preventDefault();
   const amount = document.querySelector('#controls input').value
   createBoxes(amount)
@@ -30,12 +23,13 @@ btnElements[0].addEventListener(`click`, (e) => {
 
 
 function createBoxes(amount) {
-  
+  destroyBoxes() 
+  console.log(`При повторному натисканні на кнопку Create поверх старої колекції має рендеритись нова. (ТЗ). Але ви сказали робить так - строка 27, так як робить?`)
   if(amount <= 100 && amount > 0) {
   for (let i = 0; i < amount; i++) {
     const divMake = document.createElement(`div`)
     const divMakeColor = getRandomHexColor();
-    divMake.classList = `square`;
+    divMake.classList.add(`square`);
     divMake.style.width = `${30+10*i}px`;
     divMake.style.height = `${30+10*i}px`;
     divMake.style.backgroundColor = `${divMakeColor}`;
@@ -52,10 +46,7 @@ function createBoxes(amount) {
 }
 
 function destroyBoxes() {
-  const squareBoxes = document.querySelectorAll(`.square`)
-  for (const box of squareBoxes) {
-    box.remove()
-  }
+  divElement.innerHTML = ``
 }
 
-btnElements[1].addEventListener(`click`, destroyBoxes)
+btnDestroy.addEventListener(`click`, destroyBoxes)
