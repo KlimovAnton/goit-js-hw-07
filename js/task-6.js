@@ -33,7 +33,7 @@ function createBoxes(amount) {
     divMake.style.width = `${30+10*i}px`;
     divMake.style.height = `${30+10*i}px`;
     divMake.style.backgroundColor = `${divMakeColor}`;
-    divElement.appendChild(divMake);
+    // divElement.appendChild(divMake);
     // console.log(divMake)
   }} 
     else {

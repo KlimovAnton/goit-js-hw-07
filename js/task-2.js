@@ -39,8 +39,7 @@ const makeListGalleryFn = (img) => {
   
   return `
     <li class="gallery-list">
-      <img src="${url}" width="640" height="400">
-      <alt="${alt}">
+      <img src="${url}" alt="${alt}" width="640" height="400">
     </li>
   `
 }
@@ -48,4 +47,4 @@ const makeListGalleryFn = (img) => {
 const addgalleryEl = images.map(makeListGalleryFn)
   .join('');
 
-galleryEl.insertAdjacentHTML(`beforeend`, addgalleryEl)
+galleryEl.insertAdjacentHTML('beforeend', addgalleryEl)
